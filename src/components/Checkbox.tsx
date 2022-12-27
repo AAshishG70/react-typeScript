@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
-const Checkbox = () => {
-  const [isChecked, setIsChecked] = useState(false);
+const Checkbox = ({ text }: { text: string }) => {
+  // const [isChecked, setIsChecked] = useState(false);
   return (
     <div>
       <label>
         <input type="checkbox" />
       </label>
+      <div>{text}</div>
     </div>
   );
 };

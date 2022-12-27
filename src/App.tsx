@@ -5,7 +5,7 @@ const App = () => {
   // const [number, setNumber] = useState<string | undefined>(null);
   return (
     <div>
-      <Checkbox />
+      <Checkbox text="Hey Man" />
     </div>
   );
 };
