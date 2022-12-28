@@ -1,19 +1,17 @@
 import { createContext, useState } from "react";
+import { IProduct } from "../../model/index";
 
 interface IProductContext {
   isFetching: boolean;
-  products?: [];
-}
-
-interface IProduct {
-  availableSizes: string[];
+  products?: IProduct[];
 }
 
 const ProductContext = createContext<undefined | IProductContext>(undefined);
 
 const ProductProvider = () => {
   const [isFetching, setIsFetching] = useState(false);
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState<IProduct[]>([]);
+
   return (
     <ProductContext.Provider value={{ isFetching: false }}>
       hello
