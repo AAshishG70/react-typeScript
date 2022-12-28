@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
+import { ProductContext } from "./context/product-context/ProductContextProvider";
 
 const App = () => {
+  const products = useContext(ProductContext);
+  console.log(products?.products);
   return <div>Checking Versel Deployment</div>;
 };
 

@@ -1,24 +1,32 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState, ReactNode } from "react";
 import { IProduct } from "../../model/index";
+import { getProducts } from "../../services/product";
 
 interface IProductContext {
   isFetching: boolean;
   products?: IProduct[];
 }
 
-const ProductContext = createContext<undefined | IProductContext>(undefined);
+export const ProductContext = createContext<undefined | IProductContext>(
+  undefined
+);
 
-const ProductProvider = () => {
+export const ProductProvider = ({ children }: { children: ReactNode }) => {
   const [isFetching, setIsFetching] = useState(false);
-  const [products, setProducts] = useState<IProduct[]>([]);
+  const [products, setProducts] = useState<IProduct[] | undefined>([]);
+
+  useEffect(() => {
+    getProducts().then((data) => setProducts(data));
+  }, []);
 
   return (
-    <ProductContext.Provider value={{ isFetching: false }}>
-      hello
+    <ProductContext.Provider value={{ isFetching: isFetching, products }}>
+      {children}
     </ProductContext.Provider>
   );
 };
 
 /* <> --> This is typescript generics 
 Typescript was introduced by Microsoft
+
 */
