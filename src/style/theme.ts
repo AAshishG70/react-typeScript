@@ -12,7 +12,7 @@
 
 // const myName: TypeofKeys = "alex";
 
-interface ThemeInterface {
+export interface ThemeInterface {
   colors: { [key in keyof typeof colors]: string };
   breakpoints: { [key in keyof typeof breakpoints]: string };
 }
@@ -33,4 +33,4 @@ const breakpoints = {
 };
 const theme: ThemeInterface = { colors, breakpoints };
 
-export default { theme };
+export { theme };
