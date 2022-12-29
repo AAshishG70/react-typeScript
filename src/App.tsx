@@ -1,10 +1,17 @@
-import React, { useContext } from "react";
-import { ProductContext } from "./context/product-context/ProductContextProvider";
+import { useProductContext } from "./context/product-context/ProductsContextProvider";
 
 const App = () => {
-  const products = useContext(ProductContext);
-  console.log(products?.products);
-  return <div>Checking Versel Deployment</div>;
+  const response = useProductContext();
+  console.log(response);
+  return response?.products.length > 0 ? (
+    <div>
+      {response.products.map((product) => {
+        return <div key={product.id}>{product.title}</div>;
+      })}
+    </div>
+  ) : (
+    <div>Loading...</div>
+  );
 };
 
 export default App;

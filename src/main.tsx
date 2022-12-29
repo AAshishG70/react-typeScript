@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { ProductProvider } from "./context/product-context/ProductContextProvider";
+import { ProductProvider } from "./context/product-context/ProductsContextProvider";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./style/theme";
 import GlobalStyle from "./style/global-style";
