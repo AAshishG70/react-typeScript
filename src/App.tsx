@@ -1,11 +1,13 @@
 import { useProductContext } from "./context/product-context/ProductsContextProvider";
-
+import useProducts from "./context/product-context/useProducts";
 const App = () => {
-  const response = useProductContext();
-  console.log(response);
-  return response?.products.length > 0 ? (
+  const { fetchProduct, products, isFetching } = useProducts();
+
+  fetchProducts();
+
+  return !isFetching ? (
     <div>
-      {response.products.map((product) => {
+      {products.map((product) => {
         return <div key={product.id}>{product.title}</div>;
       })}
     </div>

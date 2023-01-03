@@ -21,7 +21,12 @@ export const ProductContext = createContext<undefined | IProductContext>(
 
 export const useProductContext = () => {
   const context = useContext(ProductContext);
-  return context;
+
+  if (!context) {
+    throw new Error("Context is not provider");
+  } else {
+    return context;
+  }
 };
 
 export const ProductProvider = ({ children }: { children: ReactNode }) => {
@@ -30,7 +35,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     getProducts().then((data) => {
-      setProducts(data?.products);
+      setProducts(data);
     });
   }, []);
 
