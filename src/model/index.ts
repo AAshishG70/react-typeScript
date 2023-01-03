@@ -12,3 +12,18 @@ export interface IProduct {
   style?: string;
   title?: string;
 }
+
+export interface ICartProduct extends IProduct {
+  quantity: number;
+}
+
+export interface ICartTotal {
+  totalPrice: number;
+  productQuantity: number;
+  currencyCode: string;
+  currencySymbol: string;
+}
+
+export interface IProductResponse {
+  data: { products: IProduct[] };
+}

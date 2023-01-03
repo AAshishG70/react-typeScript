@@ -5,12 +5,11 @@ import {
   ReactNode,
   useContext,
 } from "react";
-import { IProduct } from "../../model/index";
-import { getProducts } from "../../services/product";
+import { IProduct } from "../../model";
 
 interface IProductContext {
   isFetching: boolean;
-  products?: IProduct[];
+  products: IProduct[];
   setProducts(products: IProduct[]): void;
   setIsFetching(value: boolean): void;
 }
@@ -23,21 +22,15 @@ export const useProductContext = () => {
   const context = useContext(ProductContext);
 
   if (!context) {
-    throw new Error("Context is not provider");
-  } else {
-    return context;
+    throw new Error("Context must be within provider!!");
   }
+
+  return context;
 };
 
 export const ProductProvider = ({ children }: { children: ReactNode }) => {
   const [isFetching, setIsFetching] = useState(false);
   const [products, setProducts] = useState<IProduct[]>([]);
-
-  useEffect(() => {
-    getProducts().then((data) => {
-      setProducts(data);
-    });
-  }, []);
 
   return (
     <ProductContext.Provider
@@ -47,8 +40,3 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
     </ProductContext.Provider>
   );
 };
-
-/* <> --> This is typescript generics 
-Typescript was introduced by Microsoft
-
-*/

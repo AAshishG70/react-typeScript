@@ -2,18 +2,20 @@ import { useCallback } from "react";
 import { getProducts } from "../../services/product";
 import { useProductContext } from "./ProductsContextProvider";
 
-function useProducts() {
+const useProducts = () => {
   const { setProducts, setIsFetching, products, isFetching } =
     useProductContext();
 
   const fetchProducts = useCallback(() => {
-    setIsFetching(true);
+    // TODO
+    // setIsFetching(true);
     getProducts().then((products) => {
-      setIsFetching(false);
       setProducts(products);
+      setIsFetching(false);
     });
   }, [setIsFetching, setProducts]);
+
   return { fetchProducts, isFetching, products };
-}
+};
 
 export default useProducts;

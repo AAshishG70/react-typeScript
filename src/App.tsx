@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react";
 import { useProductContext } from "./context/product-context/ProductsContextProvider";
 import useProducts from "./context/product-context/useProducts";
+
 const App = () => {
-  const { fetchProduct, products, isFetching } = useProducts();
+  const { fetchProducts, products, isFetching } = useProducts();
 
   fetchProducts();
 
@@ -12,7 +14,7 @@ const App = () => {
       })}
     </div>
   ) : (
-    <div>Loading...</div>
+    <div>Loading</div>
   );
 };
 

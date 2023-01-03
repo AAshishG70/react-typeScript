@@ -2,15 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { ProductProvider } from "./context/product-context/ProductsContextProvider";
+import GlobalStyle from "./style/global-style";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./style/theme";
-import GlobalStyle from "./style/global-style";
+import { CartProvider } from "./context/cart-context/CartContextProvider";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ThemeProvider theme={theme}>
     <GlobalStyle />
     <ProductProvider>
-      <App />
+      <CartProvider>
+        <App />
+      </CartProvider>
     </ProductProvider>
   </ThemeProvider>
 );
