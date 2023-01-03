@@ -1,24 +1,17 @@
-import { useEffect, useState } from "react";
-import { useProductContext } from "./context/product-context/ProductsContextProvider";
-import useProducts from "./context/product-context/useProducts";
+import Product from './components/Products/Product/Product'
+import { Container } from './components/Products/Product/style'
 
 const App = () => {
-  const { fetchProducts, products, isFetching } = useProducts();
-
-  fetchProducts();
-
-  return !isFetching ? (
+  return (
     <div>
-      {products.map((product) => {
-        return <div key={product.id}>{product.title}</div>;
-      })}
+      <Container>
+        <Product />
+      </Container>
     </div>
-  ) : (
-    <div>Loading</div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
 
 // const [firstNumber, setFirstNumber] = useState<number>();
 // const [secondNumber] = useState();

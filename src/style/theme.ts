@@ -13,8 +13,8 @@
 // const myName: TypeofKeys = "alex";
 
 export interface ThemeInterface {
-  colors: { [key in keyof typeof colors]: string };
-  breakpoints: { [key in keyof typeof breakpoints]: string };
+  colors: { [key in keyof typeof colors]: string }
+  breakpoints: { [key in keyof typeof breakpoints]: string }
 }
 // The above expression is similar to the example below:
 // for (let key in [1, 2, 3, 4]) {
@@ -22,15 +22,15 @@ export interface ThemeInterface {
 // }
 
 const colors = {
-  primary: "red",
-  secondary: "blue",
-};
+  primary: 'lightblue',
+  secondary: 'gray',
+}
 
 const breakpoints = {
-  desktop: "1024px",
-  tablet: "768px",
-  mobile: "480px",
-};
-const theme: ThemeInterface = { colors, breakpoints };
+  desktop: '1024px',
+  tablet: '768px',
+  mobile: '480px',
+}
+const theme: ThemeInterface = { colors, breakpoints }
 
-export { theme };
+export { theme }
