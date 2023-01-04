@@ -18,18 +18,28 @@ export const Price = styled.div``
 
 export const Value = styled.div``
 
-export const BuyButton = styled.div`
-  height: 30px;
+export const BuyButton = styled.button`
+  height: 38px;
+  color: white;
   background-color: ${({ theme }) => theme.colors.primary};
   position: absolute;
   bottom: 0;
-  width: 100px;
+  border: none;
+  display: block;
+  width: 100%;
+  left: 0;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.secondary};
+    cursor: pointer;
+  }
 `
 
 export const Container = styled.div`
-  margin: 18% 10%;
-  padding: 20px;
-  height: 200px;
+  margin: 2%;
+  padding: 10px;
+  height: 250px;
   color: white;
   background-color: ${({ theme }) => theme.colors.secondary};
   text-align: center;
