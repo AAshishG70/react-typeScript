@@ -22,8 +22,8 @@ export interface ThemeInterface {
 // }
 
 const colors = {
-  primary: 'lightblue',
-  secondary: 'gray',
+  primary: '#1b1a20',
+  secondary: '#eabf00',
 }
 
 const breakpoints = {
