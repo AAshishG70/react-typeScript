@@ -1,11 +1,10 @@
 import {
   createContext,
-  useEffect,
   useState,
   ReactNode,
   useContext,
-} from "react";
-import { IProduct } from "../../model";
+} from 'react';
+import { IProduct } from '../../model';
 
 interface IProductContext {
   isFetching: boolean;
@@ -22,7 +21,7 @@ export const useProductContext = () => {
   const context = useContext(ProductContext);
 
   if (!context) {
-    throw new Error("Context must be within provider!!");
+    throw new Error('Context must be within provider!!');
   }
 
   return context;

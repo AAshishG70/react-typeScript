@@ -1,13 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import { ProductProvider } from "./context/product-context/ProductsContextProvider";
-import GlobalStyle from "./style/global-style";
-import { ThemeProvider } from "styled-components";
-import { theme } from "./style/theme";
-import { CartProvider } from "./context/cart-context/CartContextProvider";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './app'
+import { ProductProvider } from './context/product-context/product-context-provider'
+import GlobalStyle from './style/global-style'
+import { ThemeProvider } from 'styled-components'
+import { theme } from './style/theme'
+import { CartProvider } from './context/cart-context/cart-context-provider'
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <ThemeProvider theme={theme}>
     <GlobalStyle />
     <ProductProvider>
@@ -15,5 +15,5 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <App />
       </CartProvider>
     </ProductProvider>
-  </ThemeProvider>
-);
+  </ThemeProvider>,
+)
