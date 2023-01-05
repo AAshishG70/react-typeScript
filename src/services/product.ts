@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { IProductResponse } from '../model/index'
+import { IProductResponse } from '@/model/index'
 
 export async function getProducts() {
   const { data }: IProductResponse = await axios(

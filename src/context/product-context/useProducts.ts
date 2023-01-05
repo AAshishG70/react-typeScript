@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { getProducts } from '../../services/product'
+import { getProducts } from '@/services/product'
 import { useProductContext } from './product-context-provider'
 
 const useProducts = () => {

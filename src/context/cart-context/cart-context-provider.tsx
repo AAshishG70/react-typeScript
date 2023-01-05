@@ -1,44 +1,42 @@
-import { useState, ReactNode, createContext, useContext } from "react";
-import { ICartProduct, ICartTotal } from "../../model/index";
+import { useState, ReactNode, createContext, useContext } from 'react'
+import { ICartProduct, ICartTotal } from '@/model/index'
 
 interface ICartContext {
-  isOpen: boolean;
-  setIsOpen(state: boolean): void;
-  products: ICartProduct[];
-  setProducts(products: ICartProduct[]): void;
-  total: ICartTotal;
-  setTotal(state: ICartTotal): void;
+  isOpen: boolean
+  setIsOpen(state: boolean): void
+  products: ICartProduct[]
+  setProducts(products: ICartProduct[]): void
+  total: ICartTotal
+  setTotal(state: ICartTotal): void
 }
 
-const CartContext = createContext<ICartContext | undefined>(undefined);
+const CartContext = createContext<ICartContext | undefined>(undefined)
 
 export const useCartContext = () => {
-  const context = useContext(CartContext);
+  const context = useContext(CartContext)
 
   if (!context) {
-    throw new Error("Context must be within the provider");
+    throw new Error('Context must be within the provider')
   } else {
-    return context;
+    return context
   }
-};
+}
 
 const totalInitialValues = {
   totalPrice: 0,
   productQuantity: 0,
-  currencyCode: "USD",
-  currencySymbol: "$",
-};
+  currencyCode: 'USD',
+  currencySymbol: '$',
+}
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [products, setProducts] = useState<ICartProduct[]>([]);
-  const [total, setTotal] = useState<ICartTotal>(totalInitialValues);
+  const [isOpen, setIsOpen] = useState(false)
+  const [products, setProducts] = useState<ICartProduct[]>([])
+  const [total, setTotal] = useState<ICartTotal>(totalInitialValues)
 
   return (
-    <CartContext.Provider
-      value={{ isOpen, setIsOpen, products, setProducts, total, setTotal }}
-    >
+    <CartContext.Provider value={{ isOpen, setIsOpen, products, setProducts, total, setTotal }}>
       {children}
     </CartContext.Provider>
-  );
-};
+  )
+}

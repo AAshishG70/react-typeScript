@@ -1,6 +1,17 @@
-import styled from '../../../style/styled-components'
+import styled from '@/style/styled-components'
 
-export const Image = styled.div``
+interface IContainer {
+  shipping?: boolean
+}
+
+interface IImage {
+  imgUrl?: string
+}
+
+export const Image = styled.div<IImage>`
+  background-color: blue;
+  height: 100px;
+`
 
 export const Shipping = styled.div`
   position: absolute;
