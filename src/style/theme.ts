@@ -31,6 +31,7 @@ const breakpoints = {
   tablet: '768px',
   mobile: '480px',
 }
+
 const theme: ThemeInterface = { colors, breakpoints }
 
 export { theme }
