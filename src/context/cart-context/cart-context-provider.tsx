@@ -1,5 +1,5 @@
-import { useState, ReactNode, createContext, useContext } from 'react'
-import { ICartProduct, ICartTotal } from '@/model/index'
+import { createContext, ReactNode, useContext, useState } from 'react'
+import { ICartProduct, ICartTotal } from '../../model'
 
 interface ICartContext {
   isOpen: boolean
@@ -11,16 +11,6 @@ interface ICartContext {
 }
 
 const CartContext = createContext<ICartContext | undefined>(undefined)
-
-export const useCartContext = () => {
-  const context = useContext(CartContext)
-
-  if (!context) {
-    throw new Error('Context must be within the provider')
-  } else {
-    return context
-  }
-}
 
 const totalInitialValues = {
   totalPrice: 0,
@@ -35,8 +25,27 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [total, setTotal] = useState<ICartTotal>(totalInitialValues)
 
   return (
-    <CartContext.Provider value={{ isOpen, setIsOpen, products, setProducts, total, setTotal }}>
+    <CartContext.Provider
+      value={{
+        isOpen,
+        setIsOpen,
+        products,
+        setProducts,
+        total,
+        setTotal,
+      }}
+    >
       {children}
     </CartContext.Provider>
   )
+}
+
+export const useCartContext = () => {
+  const context = useContext(CartContext)
+
+  if (!context) {
+    throw new Error('CartContext must be within provider!!')
+  }
+
+  return context
 }
